@@ -16,7 +16,7 @@
             <div class="row align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1">Ticket Sales Today</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">60</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $ticket_sales_today->count }}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-calendar fa-2x text-primary"></i>
@@ -32,7 +32,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1">New User Today</div>
-                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">24</div>
+                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $new_user_today->count }}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-user fa-2x text-info"></i>
@@ -48,7 +48,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1">Total Ticket Sales</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">650</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_ticket_sales->count }}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-shopping-cart fa-2x text-success"></i>
@@ -64,7 +64,7 @@
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-uppercase mb-1">Total Customers</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_customer->count }}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-users fa-2x text-warning"></i>
@@ -79,7 +79,7 @@
         <div class="card">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold">Recent Booking</h6>
-            <a class="m-0 float-right btn-sm" href="booking.html" style="color:#3abaf4 !important;">View More <i
+            <a class="m-0 float-right btn-sm" href="/bookinglist" style="color:#3abaf4 !important;">View More <i
                 class="fas fa-chevron-right"></i></a>
           </div>
           <div class="table-responsive">
@@ -88,53 +88,19 @@
                 <tr>
                   <th>Order ID</th>
                   <th>Customer</th>
+                  <th>Ticket</th>
                   <th>Ticket Date</th>
-                  <th>No. of People</th>
-                  <th>Status</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach ($ticket_bookings as $ticket_booking)
                 <tr>
-                  <td>RA0449</td>
-                  <td>Udin Wayang</td>
-                  <td>July 12, Sunday</td>
-                  <td>Adult - 1 / Children - 3</td>
-                  <td><span class="badge badge-success">Paid (Rs.1100)</span></td>
-                  <td>Paid online</td>
+                  <td>B-0000{{ $ticket_booking->bookid}}</td>
+                  <td>{{ $ticket_booking->customer}}</td>
+                  <td>{{ $ticket_booking->ticket}}</td>
+                  <td>{{ $ticket_booking->created_at}}</td>
                 </tr>
-                <tr>
-                  <td>RA5324</td>
-                  <td>Jaenab Bajigur</td>
-                  <td>July 12, Sunday</td>
-                  <td>Adult - 1 / Children - 3</td>
-                  <td><span class="badge badge-danger">Pending (Rs.500)</span></td>
-                  <td><a href="#" class="btn btn-sm btn-success">Accept payment</a></td>
-                </tr>
-                <tr>
-                  <td>RA8568</td>
-                  <td>Rivat Mahesa</td>
-                  <td>July 12, Sunday</td>
-                  <td>Adult - 1 / Children - 3</td>
-                  <td><span class="badge badge-danger">Pending (Rs.1000)</span></td>
-                  <td><a href="#" class="btn btn-sm btn-success">Accept payment</a></td>
-                </tr>
-                <tr>
-                  <td>RA1453</td>
-                  <td>Indri Junanda</td>
-                  <td>July 12, Sunday</td>
-                  <td>Adult - 1 / Children - 3</td>
-                  <td><span class="badge badge-success">Paid (Rs.1000)</span></td>
-                  <td>Paid online</td>
-                </tr>
-                <tr>
-                  <td>RA1998</td>
-                  <td>Udin Cilok</td>
-                  <td>July 12, Sunday</td>
-                  <td>Adult - 1 / Children - 3</td>
-                  <td><span class="badge badge-success">Paid (Rs.800)</span></td>
-                  <td>Paid online</td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

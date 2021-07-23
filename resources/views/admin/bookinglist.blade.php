@@ -18,111 +18,28 @@
                     <tr>
                       <th>Order ID</th>
                       <th>Customer</th>
+                      <th>Ticket</th>
                       <th>Ticket Date</th>
-                      <th>No. of People</th>
-                      <th>Status</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Order ID</th>
+                      <th>Booking ID</th>
                       <th>Customer</th>
+                      <th>Ticket</th>
                       <th>Ticket Date</th>
-                      <th>No. of People</th>
-                      <th>Status</th>
-                      <th>Action</th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-success">Paid (Rs.1100)</span></td>
-                      <td>Paid Online</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-danger">Pending (Rs.500)</span></td>
-                      <td><a href="#" class="btn btn-sm btn-success">Accept Payment</a></td>
-                    </tr>
-                    <tr>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-success">Paid (Rs.1100)</span></td>
-                      <td>Paid Online</td>
-                    </tr>
-                    <tr>
-                      <td>Cedric Kelly</td>
-                      <td>Senior Javascript Developer</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-danger">Pending (Rs.500)</span></td>
-                      <td><a href="#" class="btn btn-sm btn-success">Accept Payment</a></td>
-                    </tr>
-                    <tr>
-                      <td>Airi Satou</td>
-                      <td>Accountant</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-danger">Pending (Rs.500)</span></td>
-                      <td><a href="#" class="btn btn-sm btn-success">Accept Payment</a></td>
-                    </tr>
-                    <tr>
-                      <td>Brielle Williamson</td>
-                      <td>Integration Specialist</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-success">Paid (Rs.1100)</span></td>
-                      <td>Paid Online</td>
-                    </tr>
-                    <tr>
-                      <td>Herrod Chandler</td>
-                      <td>Sales Assistant</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-success">Paid (Rs.1100)</span></td>
-                      <td>Paid Cash</td>
-                    </tr>
-                    <tr>
-                      <td>Rhona Davidson</td>
-                      <td>Integration Specialist</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-danger">Pending (Rs.500)</span></td>
-                      <td><a href="#" class="btn btn-sm btn-success">Accept Payment</a></td>
-                    </tr>
-                    <tr>
-                      <td>Colleen Hurst</td>
-                      <td>Javascript Developer</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-danger">Pending (Rs.500)</span></td>
-                      <td><a href="#" class="btn btn-sm btn-success">Accept Payment</a></td>
-                    </tr>
-                    <tr>
-                      <td>Rhona Davidson</td>
-                      <td>Integration Specialist</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-danger">Pending (Rs.500)</span></td>
-                      <td><a href="#" class="btn btn-sm btn-success">Accept Payment</a></td>
-                    </tr>
-                    <tr>
-                      <td>Brielle Williamson</td>
-                      <td>Integration Specialist</td>
-                      <td>July 12, Sunday</td>
-                      <td>Adult - 1 / Children - 3</td>
-                      <td><span class="badge badge-success">Paid (Rs.1100)</span></td>
-                      <td>Paid Online</td>
-                    </tr>
+                    @foreach ($ticket_bookings as $ticket_booking)
+                        <tr>
+                          <td>B-0000{{ $ticket_booking->bookid}}</td>
+                          <td>{{ $ticket_booking->customer}}</td>
+                          <td>{{ $ticket_booking->ticket}}</td>
+                          <td>{{ $ticket_booking->created_at}}</td>
+                      </tr>
+                    @endforeach
+                    
                   </tbody>
                 </table>
               </div>

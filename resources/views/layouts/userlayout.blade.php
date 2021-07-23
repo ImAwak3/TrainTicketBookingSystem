@@ -27,12 +27,12 @@
       </a>
       <hr class="sidebar-divider my-0">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/home">
           <i class="fas fa-money-check"></i>
           <span>Buy tickets</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="ticket.html">
+        <a class="nav-link" href="/myticket">
           <i class="fas fa-ticket-alt"></i>
           <span>My Tickets</span>
         </a>
@@ -83,6 +83,8 @@
           </ul>
         </nav>
         <!-- Topbar -->
+
+        @yield('content')
 
         <!-- Modal Logout -->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"

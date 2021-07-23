@@ -21,6 +21,10 @@ Auth::routes();
 Route::resource('/tickets', TicketController::class);
 
 
+Route::post('/buyticket/{id}', [App\Http\Controllers\HomeController::class, 'buyticket']);
+Route::post('/cancelticket/{id}', [App\Http\Controllers\HomeController::class, 'cancelticket']);
+Route::get('/myticket', [App\Http\Controllers\HomeController::class, 'myticket']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
